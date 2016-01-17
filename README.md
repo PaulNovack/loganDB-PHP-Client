@@ -1,6 +1,8 @@
 # loganDB-PHP-Client
 ##Client for loganDB server
 
+More information at: http://logandb.com
+
 ##Methods in version 0.2.0
 
 Connect()
