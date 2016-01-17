@@ -76,7 +76,7 @@ class loganDBClient {
             . $this->authid . '|' 
             . $this->sessionid . '|' 
             . $keystorename . '|'
-            . 'delete|' 
+            . 'deletekey|' 
             . $key . '|'
             . '|';
     //echo $in . "<br/>\r\n";
