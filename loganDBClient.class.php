@@ -27,7 +27,7 @@ class loganDBClient {
     if(!$this->sock){
       echo "Connection error!";  //throw new loganDBException("$errno: $errstr");
     } else {
-      echo "OK!<br/>";
+      //echo "OK!<br/>";
     }
     stream_set_blocking ($this->sock , false);
     //if(function_exists('stream_set_chunk_size')){
