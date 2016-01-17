@@ -1,7 +1,7 @@
 # loganDB-PHP-Client
-Client for loganDB server
+##Client for loganDB server
 
-Methods in version 0.2.0
+##Methods in version 0.2.0
 
 Connect()
 
