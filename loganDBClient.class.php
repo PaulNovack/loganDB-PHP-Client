@@ -12,9 +12,11 @@ class loganDBClient {
   public $authid;
   public $sessionid;
   public $timeout;  // in milliseconds;
-  private $apiversion = "0-1-0";   
+  public $keys = array();
+  public $values = array();
+  private $apiversion = "0-3-0";   
   private $socket;
-  function __construct($serverip = "127.0.0.1",$port = 6779,$authid = "default",$sessionid = "default",$timeout = 1000) {
+  function __construct($serverip = "127.0.0.1",$port = 6779,$authid = "JAVA-default",$sessionid = "JAVA-default",$timeout = 1000) {
      $this->serverip = $serverip;
      $this->port = $port; 
      $this->authid = $authid;
@@ -27,12 +29,18 @@ class loganDBClient {
     if(!$this->sock){
       echo "Connection error!";  //throw new loganDBException("$errno: $errstr");
     } else {
-      //echo "OK!<br/>";
+      echo "OK!<br/>";
     }
     stream_set_blocking ($this->sock , false);
-    //if(function_exists('stream_set_chunk_size')){
-    //  @stream_set_chunk_size($this->sock, 4096);
-    //} 
+  }
+  public function LDBEcho($keystorename, $key){
+    $in = '|' . $this->apiversion . '|' 
+            . $this->authid . '|' 
+            . $this->sessionid . '|' 
+            . $keystorename . '|'
+            . 'echo|' 
+            . $key . '|';
+    return $this->WriteReadStream($in);
   }
   public function GetKey($keystorename, $key){
     $in = '|' . $this->apiversion . '|' 
@@ -41,16 +49,46 @@ class loganDBClient {
             . $keystorename . '|'
             . 'getkey|' 
             . $key . '|';
-    //echo $in . "<br/>\r\n";
-    $out = "";
-    $result = @fwrite($this->sock, $in);
-    $tries = 0;
-    while($out == ""){
-        //echo $tries++ . "<br/>";
-        $out = @fread($this->sock, 10000);
+    return $this->WriteReadStream($in);
+  }
+  public function AddSetPair($key,$value){
+    array_push($this->keys,$key);
+    array_push($this->values,$value);
+  }
+  public function AddGetKey($key){
+     array_push($this->keys,$key);     
+  }
+  public function GetMultiKey($keystorename){
+    $in = '|' . $this->apiversion . '|' 
+        . $this->authid . '|' 
+        . $this->sessionid . '|' 
+        . $keystorename . '|'
+        . 'getmultikey';
+        // add keys
+    foreach ($this->keys as $key) {
+      $in .= "|" . $key;
     }
-   // echo "OUTPUT is: " . $out . ":</br>";
-    return $out; 
+    $in.= "|***LOGANDB_ENDLIST***"; 
+    $in.= "|"; //end messsage string
+    return $this->WriteReadStream($in);
+  }
+  public function SetMultiKey($keystorename){
+    $in = '|' . $this->apiversion . '|' 
+           . $this->authid . '|' 
+           . $this->sessionid . '|' 
+           . $keystorename . '|'
+           . 'setmultikey';
+    // add keys
+    foreach ($this->keys as $key) {
+      $in .= "|" . $key;
+    }
+    $in.= "|***LOGANDBENDLIST***"; 
+    foreach ($this->values as $value) {
+      $in .= "|" . $values;
+    }
+    $in.= "|***LOGANDBENDLIST***"; 
+    $in.= "|"; //end messsage string
+    return $this->WriteReadStream($in);
   }
   public function SetKey($keystorename, $key,$value){
     $in = '|' . $this->apiversion . '|' 
@@ -60,18 +98,20 @@ class loganDBClient {
             . 'setkey|' 
             . $key . '|'
             . $value . '|';
-    //echo $in . "<br/>\r\n";
-    $out = "";
-    $tries = 0;
-    $result = @fwrite($this->sock, $in);
-    while($out == ""){
-        //echo $tries++ . "<br/>";
-        $out = @fread($this->sock, 10000);
-    }
-    //echo "OUTPUT is: " . $out . ":</br>";
-    return $out; 
+    return $this->WriteReadStream($in);
   }
-    public function DeleteKey($keystorename, $key){
+  public function GetKeyRange($keystorename, $startkey,$endkey,$limit = 100){
+    $in = '|' . $this->apiversion . '|' 
+            . $this->authid . '|' 
+            . $this->sessionid . '|' 
+            . $keystorename . '|'
+            . 'getkeyrange|' 
+            . $startkey . '|'
+            . $endkey . '|'
+            . $limit . "|";
+    return $this->WriteReadStream($in);
+  }
+  public function DeleteKey($keystorename, $key){
     $in = '|' . $this->apiversion . '|' 
             . $this->authid . '|' 
             . $this->sessionid . '|' 
@@ -79,15 +119,26 @@ class loganDBClient {
             . 'deletekey|' 
             . $key . '|'
             . '|';
-    //echo $in . "<br/>\r\n";
-    $out = "";
-    $tries = 0;
+    return $this->WriteReadStream($in);
+  }
+  public function WriteReadStream($in){
+    //echo $in . "<br/>";
     $result = @fwrite($this->sock, $in);
-    while($out == ""){
-        //echo $tries++ . "<br/>";
-        $out = @fread($this->sock, 10000);
+    $endmarker = "***LOGANDBTCPENDSTREAM***";
+    $result = @fwrite($this->sock, $endmarker);   
+    $out = "";
+    $datalen = "";
+    while($datalen  == ""){
+      $datalen = @fread($this->sock, 9);
     }
-    //echo "OUTPUT is: " . $out . ":</br>";
+    $discard = @fread($this->sock, 1);
+    $reads = ceil(intval($datalen) / 1024);
+    //echo $reads . "<br/>";
+    for($readnum = 1; $readnum <= $reads;$readnum++){
+      $chunk = @fread($this->sock, 1024);
+      $out .= $chunk;
+    }
+    $out = substr($out,0,(strlen($out)-1));
     return $out; 
   }
   public function __destruct()
