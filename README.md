@@ -3,13 +3,6 @@
 
 More information at: http://logandb.com
 
-##Methods in version 0.2.0
+## Version 0.5.0 without long data value support limited to under ~10,000 character values
 
-Connect()
-
-string GetKey(string keystorename, string key)
-
-string SetKey(string keystorename, string key, string value)
-
-string Delete(string keystorename, string key)
 
