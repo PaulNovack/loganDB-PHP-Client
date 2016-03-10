@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<!-- saved from url=(0031)http://localhost/UnitTestV1.php -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>LoganDB PHP Client Test</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            div { margin-right: auto; margin-left: auto; width: 800px; }
+            body {font-family: arial,verdana;font-size:12px;}
+            table {	margin:0px;
+                   
+                        border-spacing: 0;
+                    border-collapse: collapse;
+                    width: 800px;
+
+            }
+            tr.testhead {background-color: #e6ccff}
+            tr.pass {background-color: lightgreen}
+            tr.fail {background-color:tomato}
+            tr.desc {background-color:#ccc}
+            tr.prep {background-color:#f5f5f0}
+            tr.ops {background-color:lightblue}
+        </style>
+    </head>
+    <body cz-shortcut-listen="true">
+        <div>
+            <h3>Logan DB PHP Client / Server Test Report version 0.5.2:  March 10, 2016, 8:08 am UTC Time</h3>
+            <table>                <tbody><tr class="testhead">
+                    <td colspan="2">
+                        <strong>Test #1:</strong> Run test of 500 24 Byte key and 4000 Byte value pairs and verify output.
+                    </td>     
+                </tr>                <tr class="desc">
+                    <td colspan="2">
+                        <strong>Test #1 preparing data:</strong> Creating random array of 500 24 Byte key and 4000 Byte value pairs........
+                    </td>     
+                </tr>                <tr class="ops">
+                    <td>
+                        <strong>Prepare operations per second:</strong>&nbsp;&nbsp; 20 ops/sec.
+                    </td>   
+                    <td>
+                        <strong>Prepare time to complete:</strong>&nbsp;&nbsp; 
+        24 seconds AND 316962 microseconds
+                    </td>     
+                </tr>                <tr class="desc">
+                    <td colspan="2">
+                        <strong>Running operation to test...................
+                    </strong></td>     
+                </tr>                <tr class="ops">
+                    <td>
+                        <strong>Run operations per second:</strong>&nbsp;&nbsp; 2747 ops/sec.
+                    </td>   
+                    <td>
+                        <strong>Run time to complete:</strong>&nbsp;&nbsp; 
+        0 seconds AND 181972 microseconds
+                    </td>     
+                </tr>                <tr class="desc">
+                    <td colspan="2">
+                        <strong>Check operation to check operation ran and worked properly...................
+                    </strong></td>     
+                </tr>                <tr class="pass">
+                    <td colspan="2">
+                        <strong>Result:</strong>&nbsp;&nbsp;---- PASS ----
+                    </td>     
+                </tr>                        <tr class="ops">
+                    <td>
+                        <strong>Check operations per second:</strong>&nbsp;&nbsp; 1976 ops/sec.
+                    </td>   
+                    <td>
+                        <strong>Check time to complete:</strong>&nbsp;&nbsp; 
+        0 seconds AND 252936 microseconds
+                    </td>     
+                </tr>                <tr class="testhead">
+                    <td colspan="2">
+                        <strong>Test #2:</strong> Run test of 5000 24 Byte key and 40 Byte value pairs and verify output.
+                    </td>     
+                </tr>                <tr class="desc">
+                    <td colspan="2">
+                        <strong>Test #2 preparing data:</strong> Creating random array of 5000 24 Byte key and 40 Byte value pairs........
+                    </td>     
+                </tr>                <tr class="ops">
+                    <td>
+                        <strong>Prepare operations per second:</strong>&nbsp;&nbsp; 1706 ops/sec.
+                    </td>   
+                    <td>
+                        <strong>Prepare time to complete:</strong>&nbsp;&nbsp; 
+        2 seconds AND 930417 microseconds
+                    </td>     
+                </tr>                <tr class="desc">
+                    <td colspan="2">
+                        <strong>Running operation to test...................
+                    </strong></td>     
+                </tr>                <tr class="ops">
+                    <td>
+                        <strong>Run operations per second:</strong>&nbsp;&nbsp; 1738 ops/sec.
+                    </td>   
+                    <td>
+                        <strong>Run time to complete:</strong>&nbsp;&nbsp; 
+        2 seconds AND 876210 microseconds
+                    </td>     
+                </tr>                <tr class="desc">
+                    <td colspan="2">
+                        <strong>Check operation to check operation ran and worked properly...................
+                    </strong></td>     
+                </tr>                <tr class="pass">
+                    <td colspan="2">
+                        <strong>Result:</strong>&nbsp;&nbsp;---- PASS ----
+                    </td>     
+                </tr>                        <tr class="ops">
+                    <td>
+                        <strong>Check operations per second:</strong>&nbsp;&nbsp; 3919 ops/sec.
+                    </td>   
+                    <td>
+                        <strong>Check time to complete:</strong>&nbsp;&nbsp; 
+        1 seconds AND 275511 microseconds
+                    </td>     
+                </tr>                <tr class="testhead">
+                    <td colspan="2">
+                        <strong>Test #3:</strong> Run test of 5000 80 Byte key and 80 Byte value pairs and verify output.
+                    </td>     
+                </tr>                <tr class="desc">
+                    <td colspan="2">
+                        <strong>Test #3 preparing data:</strong> Creating random array of 5000 80 Byte key and 80 Byte value pairs........
+                    </td>     
+                </tr>                <tr class="ops">
+                    <td>
+                        <strong>Prepare operations per second:</strong>&nbsp;&nbsp; 518 ops/sec.
+                    </td>   
+                    <td>
+                        <strong>Prepare time to complete:</strong>&nbsp;&nbsp; 
+        9 seconds AND 649967 microseconds
+                    </td>     
+                </tr>                <tr class="desc">
+                    <td colspan="2">
+                        <strong>Running operation to test...................
+                    </strong></td>     
+                </tr>                <tr class="ops">
+                    <td>
+                        <strong>Run operations per second:</strong>&nbsp;&nbsp; 2144 ops/sec.
+                    </td>   
+                    <td>
+                        <strong>Run time to complete:</strong>&nbsp;&nbsp; 
+        2 seconds AND 331590 microseconds
+                    </td>     
+                </tr>                <tr class="desc">
+                    <td colspan="2">
+                        <strong>Check operation to check operation ran and worked properly...................
+                    </strong></td>     
+                </tr>                <tr class="pass">
+                    <td colspan="2">
+                        <strong>Result:</strong>&nbsp;&nbsp;---- PASS ----
+                    </td>     
+                </tr>                        <tr class="ops">
+                    <td>
+                        <strong>Check operations per second:</strong>&nbsp;&nbsp; 2449 ops/sec.
+                    </td>   
+                    <td>
+                        <strong>Check time to complete:</strong>&nbsp;&nbsp; 
+        2 seconds AND 41367 microseconds
+                    </td>     
+                </tr>                <tr class="testhead">
+                    <td colspan="2">
+                        <strong>Test #4:</strong> Run test of 5000 50 Byte key and 50 Byte value pairs and verify output.
+                    </td>     
+                </tr>                <tr class="desc">
+                    <td colspan="2">
+                        <strong>Test #4 preparing data:</strong> Creating random array of 5000 50 Byte key and 50 Byte value pairs........
+                    </td>     
+                </tr>                <tr class="ops">
+                    <td>
+                        <strong>Prepare operations per second:</strong>&nbsp;&nbsp; 1214 ops/sec.
+                    </td>   
+                    <td>
+                        <strong>Prepare time to complete:</strong>&nbsp;&nbsp; 
+        4 seconds AND 115602 microseconds
+                    </td>     
+                </tr>                <tr class="desc">
+                    <td colspan="2">
+                        <strong>Running operation to test...................
+                    </strong></td>     
+                </tr>                <tr class="ops">
+                    <td>
+                        <strong>Run operations per second:</strong>&nbsp;&nbsp; 2939 ops/sec.
+                    </td>   
+                    <td>
+                        <strong>Run time to complete:</strong>&nbsp;&nbsp; 
+        1 seconds AND 701011 microseconds
+                    </td>     
+                </tr>                <tr class="desc">
+                    <td colspan="2">
+                        <strong>Check operation to check operation ran and worked properly...................
+                    </strong></td>     
+                </tr>                <tr class="pass">
+                    <td colspan="2">
+                        <strong>Result:</strong>&nbsp;&nbsp;---- PASS ----
+                    </td>     
+                </tr>                        <tr class="ops">
+                    <td>
+                        <strong>Check operations per second:</strong>&nbsp;&nbsp; 5780 ops/sec.
+                    </td>   
+                    <td>
+                        <strong>Check time to complete:</strong>&nbsp;&nbsp; 
+        0 seconds AND 864933 microseconds
+                    </td>     
+                </tr>                <tr class="testhead">
+                    <td colspan="2">
+                        <strong>Test #5:</strong> Run test of 100 80 Byte key and 15000 Byte value pairs and verify output.
+                    </td>     
+                </tr>                <tr class="desc">
+                    <td colspan="2">
+                        <strong>Test #5 preparing data:</strong> Creating random array of 100 80 Byte key and 15000 Byte value pairs........
+                    </td>     
+                </tr>                <tr class="ops">
+                    <td>
+                        <strong>Prepare operations per second:</strong>&nbsp;&nbsp; 9 ops/sec.
+                    </td>   
+                    <td>
+                        <strong>Prepare time to complete:</strong>&nbsp;&nbsp; 
+        10 seconds AND 450721 microseconds
+                    </td>     
+                </tr>                <tr class="desc">
+                    <td colspan="2">
+                        <strong>Running operation to test...................
+                    </strong></td>     
+                </tr>                <tr class="ops">
+                    <td>
+                        <strong>Run operations per second:</strong>&nbsp;&nbsp; 1177 ops/sec.
+                    </td>   
+                    <td>
+                        <strong>Run time to complete:</strong>&nbsp;&nbsp; 
+        0 seconds AND 84896 microseconds
+                    </td>     
+                </tr>                <tr class="desc">
+                    <td colspan="2">
+                        <strong>Check operation to check operation ran and worked properly...................
+                    </strong></td>     
+                </tr>                <tr class="pass">
+                    <td colspan="2">
+                        <strong>Result:</strong>&nbsp;&nbsp;---- PASS ----
+                    </td>     
+                </tr>                        <tr class="ops">
+                    <td>
+                        <strong>Check operations per second:</strong>&nbsp;&nbsp; 4777 ops/sec.
+                    </td>   
+                    <td>
+                        <strong>Check time to complete:</strong>&nbsp;&nbsp; 
+        0 seconds AND 20933 microseconds
+                    </td>     
+                </tr>                <tr class="testhead">
+                    <td colspan="2">
+                        <strong>Test #6:</strong> Run test of 100 80 Byte key and 18000 Byte value pairs and verify output.
+                    </td>     
+                </tr>                <tr class="desc">
+                    <td colspan="2">
+                        <strong>Test #6 preparing data:</strong> Creating random array of 100 80 Byte key and 18000 Byte value pairs........
+                    </td>     
+                </tr>                <tr class="ops">
+                    <td>
+                        <strong>Prepare operations per second:</strong>&nbsp;&nbsp; 8 ops/sec.
+                    </td>   
+                    <td>
+                        <strong>Prepare time to complete:</strong>&nbsp;&nbsp; 
+        11 seconds AND 280707 microseconds
+                    </td>     
+                </tr>                <tr class="desc">
+                    <td colspan="2">
+                        <strong>Running operation to test...................
+                    </strong></td>     
+                </tr>                <tr class="ops">
+                    <td>
+                        <strong>Run operations per second:</strong>&nbsp;&nbsp; 167 ops/sec.
+                    </td>   
+                    <td>
+                        <strong>Run time to complete:</strong>&nbsp;&nbsp; 
+        0 seconds AND 596990 microseconds
+                    </td>     
+                </tr>                <tr class="desc">
+                    <td colspan="2">
+                        <strong>Check operation to check operation ran and worked properly...................
+                    </strong></td>     
+                </tr>                <tr class="pass">
+                    <td colspan="2">
+                        <strong>Result:</strong>&nbsp;&nbsp;---- PASS ----
+                    </td>     
+                </tr>                        <tr class="ops">
+                    <td>
+                        <strong>Check operations per second:</strong>&nbsp;&nbsp; 1910 ops/sec.
+                    </td>   
+                    <td>
+                        <strong>Check time to complete:</strong>&nbsp;&nbsp; 
+        0 seconds AND 52348 microseconds
+                    </td>     
+                </tr>                <tr class="testhead">
+                    <td colspan="2">
+                        <strong>Test #7:</strong> Run test of 100 80 Byte key and 60000 Byte value pairs and verify output.
+                    </td>     
+                </tr>                <tr class="desc">
+                    <td colspan="2">
+                        <strong>Test #7 preparing data:</strong> Creating random array of 100 80 Byte key and 60000 Byte value pairs........
+                    </td>     
+                </tr>                <tr class="ops">
+                    <td>
+                        <strong>Prepare operations per second:</strong>&nbsp;&nbsp; 2 ops/sec.
+                    </td>   
+                    <td>
+                        <strong>Prepare time to complete:</strong>&nbsp;&nbsp; 
+        36 seconds AND 952651 microseconds
+                    </td>     
+                </tr>                <tr class="desc">
+                    <td colspan="2">
+                        <strong>Running operation to test...................
+                    </strong></td>     
+                </tr>                <tr class="ops">
+                    <td>
+                        <strong>Run operations per second:</strong>&nbsp;&nbsp; 222 ops/sec.
+                    </td>   
+                    <td>
+                        <strong>Run time to complete:</strong>&nbsp;&nbsp; 
+        0 seconds AND 450403 microseconds
+                    </td>     
+                </tr>                <tr class="desc">
+                    <td colspan="2">
+                        <strong>Check operation to check operation ran and worked properly...................
+                    </strong></td>     
+                </tr>                <tr class="pass">
+                    <td colspan="2">
+                        <strong>Result:</strong>&nbsp;&nbsp;---- PASS ----
+                    </td>     
+                </tr>                        <tr class="ops">
+                    <td>
+                        <strong>Check operations per second:</strong>&nbsp;&nbsp; 979 ops/sec.
+                    </td>   
+                    <td>
+                        <strong>Check time to complete:</strong>&nbsp;&nbsp; 
+        0 seconds AND 102061 microseconds
+                    </td>     
+                </tr>                <tr class="testhead">
+                    <td colspan="2">
+                        <strong>Test #8:</strong> Run test of 10 80 Byte key and 250000 Byte value pairs and verify output.
+                    </td>     
+                </tr>                <tr class="desc">
+                    <td colspan="2">
+                        <strong>Test #8 preparing data:</strong> Creating random array of 10 80 Byte key and 250000 Byte value pairs........
+                    </td>     
+                </tr>                <tr class="ops">
+                    <td>
+                        <strong>Prepare operations per second:</strong>&nbsp;&nbsp; 0 ops/sec.
+                    </td>   
+                    <td>
+                        <strong>Prepare time to complete:</strong>&nbsp;&nbsp; 
+        16 seconds AND 510478 microseconds
+                    </td>     
+                </tr>                <tr class="desc">
+                    <td colspan="2">
+                        <strong>Running operation to test...................
+                    </strong></td>     
+                </tr>                <tr class="ops">
+                    <td>
+                        <strong>Run operations per second:</strong>&nbsp;&nbsp; 26 ops/sec.
+                    </td>   
+                    <td>
+                        <strong>Run time to complete:</strong>&nbsp;&nbsp; 
+        0 seconds AND 376750 microseconds
+                    </td>     
+                </tr>                <tr class="desc">
+                    <td colspan="2">
+                        <strong>Check operation to check operation ran and worked properly...................
+                    </strong></td>     
+                </tr>                <tr class="pass">
+                    <td colspan="2">
+                        <strong>Result:</strong>&nbsp;&nbsp;---- PASS ----
+                    </td>     
+                </tr>                        <tr class="ops">
+                    <td>
+                        <strong>Check operations per second:</strong>&nbsp;&nbsp; 451 ops/sec.
+                    </td>   
+                    <td>
+                        <strong>Check time to complete:</strong>&nbsp;&nbsp; 
+        0 seconds AND 22129 microseconds
+                    </td>     
+                </tr>                <tr class="testhead">
+                    <td colspan="2">
+                        <strong>Test #9:</strong> Run test of 2 80 Byte key and 2500000 Byte value pairs and verify output.
+                    </td>     
+                </tr>                <tr class="desc">
+                    <td colspan="2">
+                        <strong>Test #9 preparing data:</strong> Creating random array of 2 80 Byte key and 2500000 Byte value pairs........
+                    </td>     
+                </tr>                <tr class="ops">
+                    <td>
+                        <strong>Prepare operations per second:</strong>&nbsp;&nbsp; 0 ops/sec.
+                    </td>   
+                    <td>
+                        <strong>Prepare time to complete:</strong>&nbsp;&nbsp; 
+        31 seconds AND 897795 microseconds
+                    </td>     
+                </tr>                <tr class="desc">
+                    <td colspan="2">
+                        <strong>Running operation to test...................
+                    </strong></td>     
+                </tr>                <tr class="ops">
+                    <td>
+                        <strong>Run operations per second:</strong>&nbsp;&nbsp; 0 ops/sec.
+                    </td>   
+                    <td>
+                        <strong>Run time to complete:</strong>&nbsp;&nbsp; 
+        98 seconds AND 967192 microseconds
+                    </td>     
+                </tr>                <tr class="desc">
+                    <td colspan="2">
+                        <strong>Check operation to check operation ran and worked properly...................
+                    </strong></td>     
+                </tr>                <tr class="pass">
+                    <td colspan="2">
+                        <strong>Result:</strong>&nbsp;&nbsp;---- PASS ----
+                    </td>     
+                </tr>                        <tr class="ops">
+                    <td>
+                        <strong>Check operations per second:</strong>&nbsp;&nbsp; 21 ops/sec.
+                    </td>   
+                    <td>
+                        <strong>Check time to complete:</strong>&nbsp;&nbsp; 
+        0 seconds AND 91367 microseconds
+                    </td>     
+                </tr>            </tbody></table> 
+
+
+
+        </div>
+    
+</body></html>
