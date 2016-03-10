@@ -21,7 +21,10 @@ function TestSetGet($TB,$ops,$keybytes,$databytes) {
 
     foreach ($TB->testData as $key => $value) {
         //echo "Key: $key; Value: $value</br>\n";
-
+       // if(strlen($value) > 8000){
+        //    $value = gzcompress($value, 9);
+       //     $TB->testData[$key] = $value;
+       // }
         $TB->lc->SetKey("A", $key, $value);
         //echo $key . "</br>";
         //ob_flush();
@@ -59,19 +62,25 @@ $TB = new LDBTestBase();
 
 $ops = 500;
 $keybytes = 24;
-$databytes = 8000;
+$databytes = 4000;
         
 TestSetGet($TB,$ops,$keybytes,$databytes);
 
-$ops = 50000;
+$ops = 5000;
 $keybytes = 24;
 $databytes = 40;
         
 TestSetGet($TB,$ops,$keybytes,$databytes);
 
-$ops = 5;
+$ops = 5000;
 $keybytes = 80;
 $databytes = 80;
+        
+TestSetGet($TB,$ops,$keybytes,$databytes);
+
+$ops = 5000;
+$keybytes = 50;
+$databytes = 50;
         
 TestSetGet($TB,$ops,$keybytes,$databytes);
 
@@ -80,11 +89,48 @@ TestSetGet($TB,$ops,$keybytes,$databytes);
 // TODO:  Check all delete operation are performing properly
 
 
-if(false){  
+if(true){  
     // Fix for over 10000 bytes not done yet will Crash server need to fix client and server
-    $ops = 5;
+    $ops = 100;
     $keybytes = 80;
-    $databytes = 12000;
+    $databytes = 15000;
 
     TestSetGet($TB,$ops,$keybytes,$databytes);
 }
+
+if(true){  
+    // Fix for over 10000 bytes not done yet will Crash server need to fix client and server
+    $ops = 100;
+    $keybytes = 80;
+    $databytes = 18000;
+
+    TestSetGet($TB,$ops,$keybytes,$databytes);
+}
+
+if(true){  
+    // Fix for over 10000 bytes not done yet will Crash server need to fix client and server
+    $ops = 100;
+    $keybytes = 80;
+    $databytes = 60000;
+
+    TestSetGet($TB,$ops,$keybytes,$databytes);
+}
+
+if(true){  
+    // Fix for over 10000 bytes not done yet will Crash server need to fix client and server
+    $ops = 10;
+    $keybytes = 80;
+    $databytes = 250000;
+
+    TestSetGet($TB,$ops,$keybytes,$databytes);
+}
+
+if(true){  
+    // Fix for over 10000 bytes not done yet will Crash server need to fix client and server
+    $ops = 2;
+    $keybytes = 80;
+    $databytes = 2500000;
+
+    TestSetGet($TB,$ops,$keybytes,$databytes);
+}
+

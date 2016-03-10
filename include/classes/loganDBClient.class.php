@@ -96,14 +96,46 @@ class loganDBClient {
     return $this->WriteReadStream($in);
   }
   public function SetKey($keystorename, $key,$value){
-    $in = '|' . $this->apiversion . '|' 
+      if(strlen($value) > 8000){
+          $start = substr($value,0,8000);
+      } else {
+          $start = $value;
+      }
+      $in = '|' . $this->apiversion . '|' 
             . $this->authid . '|' 
             . $this->sessionid . '|' 
             . $keystorename . '|'
             . 'setkey|' 
             . $key . '|'
-            . $value . '|';
-    return $this->WriteReadStream($in);
+            . $start . '|';
+    if(strlen($value) <= 8000){
+      return $this->WriteReadStream($in);
+    } else {
+      $this->WriteReadStream($in);  
+      $loops = floor(strlen($value) / 8000);
+      $spos = 8000;
+      for($loopnum = 1; $loopnum < $loops; $loopnum++){
+        $start = substr($value,$spos,8000);
+        $in = '|' . $this->apiversion . '|' 
+        . $this->authid . '|' 
+        . $this->sessionid . '|' 
+        . $keystorename . '|'
+        . 'setappendkey|' 
+        . $key . '|'
+        . $start . '|';
+        $this->WriteReadStream($in);
+        $spos += 8000;
+      }
+      $start = substr($value,$spos,8000);
+      $in = '|' . $this->apiversion . '|' 
+        . $this->authid . '|' 
+        . $this->sessionid . '|' 
+        . $keystorename . '|'
+        . 'setappendkey|' 
+        . $key . '|'
+        . $start . '|';
+      return $this->WriteReadStream($in);
+    }
   }
   public function GetKeyRange($keystorename, $startkey,$endkey,$limit = 100){
     $in = '|' . $this->apiversion . '|' 
@@ -133,7 +165,7 @@ class loganDBClient {
     $bytes = $bytes + 9;
     str_pad($bytes,9,"0",STR_PAD_LEFT);
     $in = $bytes . $in;
-    $result = @fwrite($this->sock, $in);
+    $result = fwrite($this->sock, $in);
     if(true){
         $out = "";
         $datalen = "";
