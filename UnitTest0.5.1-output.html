@@ -1,23 +1,30 @@
-# loganDB-PHP-Client
-##Client for loganDB server
+<html>
+    <head>
+        <title>LoganDB PHP Client Test</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            div { margin-right: auto; margin-left: auto; width: 800px; }
+            body {font-family: arial,verdana;font-size:12px;}
+            table {	margin:0px;
+                   
+                        border-spacing: 0;
+                    border-collapse: collapse;
+                    width: 800px;
 
-More information at: http://logandb.com
-
-## Version 0.5.0 without long data value support limited to under ~10,000 character values
-
-## Added 
-
-UnitTestV1.php which does some of needed unit tests.
-
-##To do:
-
-Write more unit tests for this PHP Client and Java Client.
-
-Fix the large data value bugs to allow over ~10,000 character values
-
-## Output of run of v1 of unit tests below
-
-<table >                <tr class="testhead">
+            }
+            tr.testhead {background-color: #e6ccff}
+            tr.pass {background-color: lightgreen}
+            tr.fail {background-color:tomato}
+            tr.desc {background-color:#ccc}
+            tr.prep {background-color:#f5f5f0}
+            tr.ops {background-color:lightblue}
+        </style>
+    </head>
+    <body>
+        <div >
+            <h3>Logan DB PHP Client / Server Test Report version 0.5.0:  March 10, 2016, 2:56 am UTC Time</h3>
+            <table >                <tr class="testhead">
                     <td colspan="2">
                         <strong>Test #1:</strong> Run test of 500 24 Byte key and 8000 Byte value pairs and verify output.
                     </td>     
@@ -150,3 +157,9 @@ Fix the large data value bugs to allow over ~10,000 character values
         0 seconds AND 17469 microseconds
                     </td>     
                 </tr>            </table> 
+
+
+
+        </div>
+    </body>
+</html>
