@@ -29,7 +29,7 @@ class loganDBClient {
     if(!$this->sock){
       echo "Connection error!";  //throw new loganDBException("$errno: $errstr");
     } else {
-      echo "OK!<br/>";
+      //echo "OK!<br/>";
     }
     stream_set_blocking ($this->sock , false);
   }
@@ -133,7 +133,7 @@ class loganDBClient {
     $bytes = $bytes + 9;
     str_pad($bytes,9,"0",STR_PAD_LEFT);
     $in = $bytes . $in;
-    $result = fwrite($this->sock, $in);
+    $result = @fwrite($this->sock, $in);
     if(true){
         $out = "";
         $datalen = "";
