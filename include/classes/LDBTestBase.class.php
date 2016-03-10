@@ -58,7 +58,7 @@ $str = <<<MARKER
     </head>
     <body>
         <div >
-            <h3>Logan DB PHP Client / Server Test Report version 0.5.0:  $today UTC Time</h3>
+            <h3>Logan DB PHP Client / Server Test Report version 0.5.2:  $today UTC Time</h3>
             <table >
 MARKER;
         echo $str;
