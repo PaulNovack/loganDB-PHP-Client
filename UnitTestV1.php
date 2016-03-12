@@ -51,7 +51,7 @@ function TestSetGet($TB,$ops,$keybytes,$databytes) {
     $TB->deletetimeOut();
 
 
-    
+    $TB->checkdeleteOperation();
     $check = true;
     foreach ($TB->testData as $key => $value) {
         $getValue = $TB->lc->GetKey("A", $key);

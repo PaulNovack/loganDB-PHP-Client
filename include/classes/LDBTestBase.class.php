@@ -48,13 +48,13 @@ $str = <<<MARKER
                     width: 800px;
 
             }
+            tr.testline {background-color: black;font-size:2px;border-spacing:3px;}
             tr.testhead {background-color: lightblue;font-size:14px;border-spacing:3px;}
             tr.pass {background-color: lightgreen}
             tr.fail {background-color:tomato}
-            tr.desc {background-color:#ccc}
-            tr.delete {background-color: orange}
-            tr.prep {background-color:#f5f5f0}
-            tr.ops {background-color:lightblue}
+            tr.running {background-color:yellow}
+            tr.desc {background-color: #ccc}
+
         </style>
     </head>
     <body>
@@ -67,6 +67,11 @@ MARKER;
     function runOut($message = "", $ops = 0){
         $this->ops = $ops;
 $str = <<<MARKER
+                <tr class="testline">
+                    <td colspan="2">
+                        &nbsp;
+                    </td>     
+                </tr>
                 <tr class="testhead">
                     <td colspan="2">
                         <strong>Test #$this->testNumber:$message </strong> 
@@ -92,7 +97,7 @@ MARKER;
     function runOperation(){
       $this->start();
 $str = <<<MARKER
-                <tr class="desc">
+                <tr class="running">
                     <td colspan="2">
                         <strong>Running operation to test...................
                     </td>     
@@ -105,9 +110,9 @@ MARKER;
     function checkOperation(){
       $this->start();
 $str = <<<MARKER
-                <tr class="desc">
+                <tr class="running">
                     <td colspan="2">
-                        <strong>Check operation to check operation ran and worked properly...................
+                        <strong>Check operation to check operation ran and getkey values match random data test array...................
                     </td>     
                 </tr>
 MARKER;
@@ -120,9 +125,9 @@ MARKER;
     function deleteOperation(){
       $this->start();
 $str = <<<MARKER
-                <tr class="delete">
+                <tr class="running">
                     <td colspan="2">
-                        <strong>Deleting operation check all keys delete properly...................
+                        <strong>Deleting operation delete all keys...................
                     </td>     
                 </tr>
 MARKER;
@@ -134,9 +139,9 @@ MARKER;
     function checkdeleteOperation(){
       $this->start();
 $str = <<<MARKER
-                <tr class="delete">
+                <tr class="running">
                     <td colspan="2">
-                        <strong>Deleting operation check all keys delete properly...................
+                        <strong>Check delete operation check all keys deleted properly...................
                     </td>     
                 </tr>
 MARKER;
@@ -208,7 +213,7 @@ MARKER;
       $this->end();
       $this->calculate($this->ops);  
 $str = <<<MARKER
-                <tr class="ops">
+                <tr class="desc">
                     <td>
                         <strong>Prepare operations per second:</strong>&nbsp;&nbsp; $this->opsPerSecond ops/sec.
                     </td>   
@@ -226,7 +231,7 @@ MARKER;
       $this->end();
       $this->calculate($this->ops);
 $str = <<<MARKER
-                <tr class="ops">
+                <tr class="desc">
                     <td>
                         <strong>Run operations per second:</strong>&nbsp;&nbsp; $this->opsPerSecond ops/sec.
                     </td>   
@@ -244,7 +249,7 @@ MARKER;
       $this->end();
       $this->calculate($this->ops);
 $str = <<<MARKER
-                <tr class="ops">
+                <tr class="desc">
                     <td>
                         <strong>Check operations per second:</strong>&nbsp;&nbsp; $this->opsPerSecond ops/sec.
                     </td>   
@@ -262,7 +267,7 @@ MARKER;
       $this->end();
       $this->calculate($this->ops);
 $str = <<<MARKER
-                <tr class="ops">
+                <tr class="desc">
                     <td>
                         <strong>Delete operations per second:</strong>&nbsp;&nbsp; $this->opsPerSecond ops/sec.
                     </td>   
@@ -283,7 +288,7 @@ MARKER;
       $this->end();
       $this->calculate($this->ops);
 $str = <<<MARKER
-                <tr class="ops">
+                <tr class="desc">
                     <td>
                         <strong>Check deletes operations are NULL per second:</strong>&nbsp;&nbsp; $this->opsPerSecond ops/sec.
                     </td>   
