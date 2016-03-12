@@ -48,17 +48,18 @@ $str = <<<MARKER
                     width: 800px;
 
             }
-            tr.testhead {background-color: #e6ccff}
+            tr.testhead {background-color: lightblue;font-size:14px;border-spacing:3px;}
             tr.pass {background-color: lightgreen}
             tr.fail {background-color:tomato}
             tr.desc {background-color:#ccc}
+            tr.delete {background-color: orange}
             tr.prep {background-color:#f5f5f0}
             tr.ops {background-color:lightblue}
         </style>
     </head>
     <body>
         <div >
-            <h3>Logan DB PHP Client / Server Test Report version 0.5.2:  $today UTC Time</h3>
+            <h3>Logan DB PHP Client / Server Test Report version 0.5.3:  $today UTC Time</h3>
             <table >
 MARKER;
         echo $str;
@@ -68,7 +69,7 @@ MARKER;
 $str = <<<MARKER
                 <tr class="testhead">
                     <td colspan="2">
-                        <strong>Test #$this->testNumber:</strong> $message
+                        <strong>Test #$this->testNumber:$message </strong> 
                     </td>     
                 </tr>
 MARKER;
@@ -79,7 +80,7 @@ MARKER;
 $str = <<<MARKER
                 <tr class="desc">
                     <td colspan="2">
-                        <strong>Test #$this->testNumber preparing data:</strong> $message
+                        <strong>Preparing data:</strong> $message
                     </td>     
                 </tr>
 MARKER;
@@ -114,7 +115,35 @@ MARKER;
         ob_flush();
         flush();            
     }
-
+    
+    
+    function deleteOperation(){
+      $this->start();
+$str = <<<MARKER
+                <tr class="delete">
+                    <td colspan="2">
+                        <strong>Deleting operation check all keys delete properly...................
+                    </td>     
+                </tr>
+MARKER;
+        echo $str;
+        ob_flush();
+        flush();            
+    }
+    
+    function checkdeleteOperation(){
+      $this->start();
+$str = <<<MARKER
+                <tr class="delete">
+                    <td colspan="2">
+                        <strong>Deleting operation check all keys delete properly...................
+                    </td>     
+                </tr>
+MARKER;
+        echo $str;
+        ob_flush();
+        flush();            
+    }
     
     function start(){
         $this->startTicks = $this->microtime_float();
@@ -135,7 +164,7 @@ MARKER;
 $str = <<<MARKER
                 <tr class="pass">
                     <td colspan="2">
-                        <strong>Result:</strong>&nbsp;&nbsp;---- PASS ----
+                        <strong>Result:</strong>&nbsp;&nbsp;---- PASS ALL KEYS RETRIEVED MATCH TEST ARRAY----
                     </td>     
                 </tr>        
 MARKER;
@@ -143,7 +172,29 @@ MARKER;
 $str = <<<MARKER
                 <tr class="fail">
                     <td colspan="2">
-                        <strong>Result:</strong>&nbsp;&nbsp;---- FAIL ----
+                        <strong>Result:</strong>&nbsp;&nbsp;---- FAIL ALL KEYS RETRIEVED DO NOT MATCH TEST ARRAY ----
+                    </td>     
+                </tr>        
+MARKER;
+      }
+      echo $str;
+      ob_flush();
+      flush();
+    }
+    function checkdeleteOut($pass){
+      if($pass){
+$str = <<<MARKER
+                <tr class="pass">
+                    <td colspan="2">
+                        <strong>Result:</strong>&nbsp;&nbsp;---- PASS ALL KEYS RETURN "NULL" ----
+                    </td>     
+                </tr>        
+MARKER;
+      } else {     
+$str = <<<MARKER
+                <tr class="fail">
+                    <td colspan="2">
+                        <strong>Result:</strong>&nbsp;&nbsp;---- FAIL ALLL KEYS DID NOT RETURN "NULL" ----
                     </td>     
                 </tr>        
 MARKER;
@@ -152,8 +203,7 @@ MARKER;
       $this->testNumber++;
       ob_flush();
       flush();
-    }
-    
+    }    
     function prepareTimeOut(){
       $this->end();
       $this->calculate($this->ops);  
@@ -190,7 +240,6 @@ MARKER;
       ob_flush();
       flush();
     }  
-    
     function checktimeOut(){
       $this->end();
       $this->calculate($this->ops);
@@ -209,6 +258,48 @@ MARKER;
       ob_flush();
       flush();
     }  
+    function deletetimeOut(){
+      $this->end();
+      $this->calculate($this->ops);
+$str = <<<MARKER
+                <tr class="ops">
+                    <td>
+                        <strong>Delete operations per second:</strong>&nbsp;&nbsp; $this->opsPerSecond ops/sec.
+                    </td>   
+                    <td>
+                        <strong>Delete time to complete:</strong>&nbsp;&nbsp; 
+        $this->seconds seconds AND $this->microseconds microseconds
+                    </td>     
+                </tr>
+MARKER;
+      echo $str;
+      ob_flush();
+      flush();
+    }      
+    
+    
+    
+    function checkdeletetimeOut(){
+      $this->end();
+      $this->calculate($this->ops);
+$str = <<<MARKER
+                <tr class="ops">
+                    <td>
+                        <strong>Check deletes operations are NULL per second:</strong>&nbsp;&nbsp; $this->opsPerSecond ops/sec.
+                    </td>   
+                    <td>
+                        <strong>Check deletes time to complete:</strong>&nbsp;&nbsp; 
+        $this->seconds seconds AND $this->microseconds microseconds
+                    </td>     
+                </tr>
+MARKER;
+      echo $str;
+      ob_flush();
+      flush();
+    }  
+    
+    
+    
     
     function calculate(){
       $duration = $this->endTicks - $this->startTicks;

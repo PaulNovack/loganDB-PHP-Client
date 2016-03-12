@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<!-- saved from url=(0031)http://127.0.0.1/UnitTestV1.php -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>LoganDB PHP Client Test</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            div { margin-right: auto; margin-left: auto; width: 800px; }
+            body {font-family: arial,verdana;font-size:12px;}
+            table {	margin:0px;
+                   
+                        border-spacing: 0;
+                    border-collapse: collapse;
+                    width: 800px;
+
+            }
+            tr.testhead {background-color: lightblue;font-size:14px;border-spacing:3px;}
+            tr.pass {background-color: lightgreen}
+            tr.fail {background-color:tomato}
+            tr.desc {background-color:#ccc}
+            tr.delete {background-color: orange}
+            tr.prep {background-color:#f5f5f0}
+            tr.ops {background-color:lightblue}
+        </style>
+    </head>
+    <body cz-shortcut-listen="true">
+        <div>
+            <h3>Logan DB PHP Client / Server Test Report version 0.5.3:  March 12, 2016, 3:25 am UTC Time</h3>
+            <table>                <tbody><tr class="testhead">
+                    <td colspan="2">
+                        <strong>Test #1:Run test of 500 24 Byte key and 4000 Byte value pairs and verify output. </strong> 
+                    </td>     
+                </tr>                <tr class="desc">
+                    <td colspan="2">
+                        <strong>Preparing data:</strong> Creating random array of 500 24 Byte key and 4000 Byte value pairs........
+                    </td>     
+                </tr>                <tr class="ops">
+                    <td>
+                        <strong>Prepare operations per second:</strong>&nbsp;&nbsp; 203 ops/sec.
+                    </td>   
+                    <td>
+                        <strong>Prepare time to complete:</strong>&nbsp;&nbsp; 
+        2 seconds AND 453615 microseconds
+                    </td>     
+                </tr>                <tr class="desc">
+                    <td colspan="2">
+                        <strong>Running operation to test...................
+                    </strong></td>     
+                </tr>                <tr class="ops">
+                    <td>
+                        <strong>Run operations per second:</strong>&nbsp;&nbsp; 10792 ops/sec.
+                    </td>   
+                    <td>
+                        <strong>Run time to complete:</strong>&nbsp;&nbsp; 
+        0 seconds AND 46327 microseconds
+                    </td>     
+                </tr>                <tr class="desc">
+                    <td colspan="2">
+                        <strong>Check operation to check operation ran and worked properly...................
+                    </strong></td>     
+                </tr>                <tr class="pass">
+                    <td colspan="2">
+                        <strong>Result:</strong>&nbsp;&nbsp;---- PASS ALL KEYS RETRIEVED MATCH TEST ARRAY----
+                    </td>     
+                </tr>                        <tr class="ops">
+                    <td>
+                        <strong>Check operations per second:</strong>&nbsp;&nbsp; 13579 ops/sec.
+                    </td>   
+                    <td>
+                        <strong>Check time to complete:</strong>&nbsp;&nbsp; 
+        0 seconds AND 36818 microseconds
+                    </td>     
+                </tr>                <tr class="delete">
+                    <td colspan="2">
+                        <strong>Deleting operation check all keys delete properly...................
+                    </strong></td>     
+                </tr>                <tr class="ops">
+                    <td>
+                        <strong>Delete operations per second:</strong>&nbsp;&nbsp; 12120 ops/sec.
+                    </td>   
+                    <td>
+                        <strong>Delete time to complete:</strong>&nbsp;&nbsp; 
+        0 seconds AND 41250 microseconds
+                    </td>     
+                </tr>                <tr class="pass">
+                    <td colspan="2">
+                        <strong>Result:</strong>&nbsp;&nbsp;---- PASS ALL KEYS RETURN "NULL" ----
+                    </td>     
+                </tr>                        <tr class="ops">
+                    <td>
+                        <strong>Check deletes operations are NULL per second:</strong>&nbsp;&nbsp; 6861 ops/sec.
+                    </td>   
+                    <td>
+                        <strong>Check deletes time to complete:</strong>&nbsp;&nbsp; 
+        0 seconds AND 72865 microseconds
+                    </td>     
+                </tr>                <tr class="testhead">
+                    <td colspan="2">
+                        <strong>Test #2:Run test of 10000 32 Byte key and 32 Byte value pairs and verify output. </strong> 
+                    </td>     
+                </tr>                <tr class="desc">
+                    <td colspan="2">
+                        <strong>Preparing data:</strong> Creating random array of 10000 32 Byte key and 32 Byte value pairs........
+                    </td>     
+                </tr>                <tr class="ops">
+                    <td>
+                        <strong>Prepare operations per second:</strong>&nbsp;&nbsp; 12574 ops/sec.
+                    </td>   
+                    <td>
+                        <strong>Prepare time to complete:</strong>&nbsp;&nbsp; 
+        0 seconds AND 795262 microseconds
+                    </td>     
+                </tr>                <tr class="desc">
+                    <td colspan="2">
+                        <strong>Running operation to test...................
+                    </strong></td>     
+                </tr>                <tr class="ops">
+                    <td>
+                        <strong>Run operations per second:</strong>&nbsp;&nbsp; 13794 ops/sec.
+                    </td>   
+                    <td>
+                        <strong>Run time to complete:</strong>&nbsp;&nbsp; 
+        0 seconds AND 724920 microseconds
+                    </td>     
+                </tr>                <tr class="desc">
+                    <td colspan="2">
+                        <strong>Check operation to check operation ran and worked properly...................
+                    </strong></td>     
+                </tr>                <tr class="pass">
+                    <td colspan="2">
+                        <strong>Result:</strong>&nbsp;&nbsp;---- PASS ALL KEYS RETRIEVED MATCH TEST ARRAY----
+                    </td>     
+                </tr>                        <tr class="ops">
+                    <td>
+                        <strong>Check operations per second:</strong>&nbsp;&nbsp; 16990 ops/sec.
+                    </td>   
+                    <td>
+                        <strong>Check time to complete:</strong>&nbsp;&nbsp; 
+        0 seconds AND 588551 microseconds
+                    </td>     
+                </tr>                <tr class="delete">
+                    <td colspan="2">
+                        <strong>Deleting operation check all keys delete properly...................
+                    </strong></td>     
+                </tr>                <tr class="ops">
+                    <td>
+                        <strong>Delete operations per second:</strong>&nbsp;&nbsp; 13921 ops/sec.
+                    </td>   
+                    <td>
+                        <strong>Delete time to complete:</strong>&nbsp;&nbsp; 
+        0 seconds AND 718332 microseconds
+                    </td>     
+                </tr>                <tr class="pass">
+                    <td colspan="2">
+                        <strong>Result:</strong>&nbsp;&nbsp;---- PASS ALL KEYS RETURN "NULL" ----
+                    </td>     
+                </tr>                        <tr class="ops">
+                    <td>
+                        <strong>Check deletes operations are NULL per second:</strong>&nbsp;&nbsp; 7696 ops/sec.
+                    </td>   
+                    <td>
+                        <strong>Check deletes time to complete:</strong>&nbsp;&nbsp; 
+        1 seconds AND 299301 microseconds
+                    </td>     
+                </tr>                <tr class="testhead">
+                    <td colspan="2">
+                        <strong>Test #3:Run test of 5000 80 Byte key and 80 Byte value pairs and verify output. </strong> 
+                    </td>     
+                </tr>                <tr class="desc">
+                    <td colspan="2">
+                        <strong>Preparing data:</strong> Creating random array of 5000 80 Byte key and 80 Byte value pairs........
+                    </td>     
+                </tr>                <tr class="ops">
+                    <td>
+                        <strong>Prepare operations per second:</strong>&nbsp;&nbsp; 5141 ops/sec.
+                    </td>   
+                    <td>
+                        <strong>Prepare time to complete:</strong>&nbsp;&nbsp; 
+        0 seconds AND 972523 microseconds
+                    </td>     
+                </tr>                <tr class="desc">
+                    <td colspan="2">
+                        <strong>Running operation to test...................
+                    </strong></td>     
+                </tr>                <tr class="ops">
+                    <td>
+                        <strong>Run operations per second:</strong>&nbsp;&nbsp; 13419 ops/sec.
+                    </td>   
+                    <td>
+                        <strong>Run time to complete:</strong>&nbsp;&nbsp; 
+        0 seconds AND 372582 microseconds
+                    </td>     
+                </tr>                <tr class="desc">
+                    <td colspan="2">
+                        <strong>Check operation to check operation ran and worked properly...................
+                    </strong></td>     
+                </tr>                <tr class="pass">
+                    <td colspan="2">
+                        <strong>Result:</strong>&nbsp;&nbsp;---- PASS ALL KEYS RETRIEVED MATCH TEST ARRAY----
+                    </td>     
+                </tr>                        <tr class="ops">
+                    <td>
+                        <strong>Check operations per second:</strong>&nbsp;&nbsp; 16613 ops/sec.
+                    </td>   
+                    <td>
+                        <strong>Check time to complete:</strong>&nbsp;&nbsp; 
+        0 seconds AND 300967 microseconds
+                    </td>     
+                </tr>                <tr class="delete">
+                    <td colspan="2">
+                        <strong>Deleting operation check all keys delete properly...................
+                    </strong></td>     
+                </tr>                <tr class="ops">
+                    <td>
+                        <strong>Delete operations per second:</strong>&nbsp;&nbsp; 1715 ops/sec.
+                    </td>   
+                    <td>
+                        <strong>Delete time to complete:</strong>&nbsp;&nbsp; 
+        2 seconds AND 914798 microseconds
+                    </td>     
+                </tr>                <tr class="pass">
+                    <td colspan="2">
+                        <strong>Result:</strong>&nbsp;&nbsp;---- PASS ALL KEYS RETURN "NULL" ----
+                    </td>     
+                </tr>                        <tr class="ops">
+                    <td>
+                        <strong>Check deletes operations are NULL per second:</strong>&nbsp;&nbsp; 1558 ops/sec.
+                    </td>   
+                    <td>
+                        <strong>Check deletes time to complete:</strong>&nbsp;&nbsp; 
+        3 seconds AND 207978 microseconds
+                    </td>     
+                </tr>                <tr class="testhead">
+                    <td colspan="2">
+                        <strong>Test #4:Run test of 5000 50 Byte key and 50 Byte value pairs and verify output. </strong> 
+                    </td>     
+                </tr>                <tr class="desc">
+                    <td colspan="2">
+                        <strong>Preparing data:</strong> Creating random array of 5000 50 Byte key and 50 Byte value pairs........
+                    </td>     
+                </tr>                <tr class="ops">
+                    <td>
+                        <strong>Prepare operations per second:</strong>&nbsp;&nbsp; 8191 ops/sec.
+                    </td>   
+                    <td>
+                        <strong>Prepare time to complete:</strong>&nbsp;&nbsp; 
+        0 seconds AND 610409 microseconds
+                    </td>     
+                </tr>                <tr class="desc">
+                    <td colspan="2">
+                        <strong>Running operation to test...................
+                    </strong></td>     
+                </tr>                <tr class="ops">
+                    <td>
+                        <strong>Run operations per second:</strong>&nbsp;&nbsp; 13180 ops/sec.
+                    </td>   
+                    <td>
+                        <strong>Run time to complete:</strong>&nbsp;&nbsp; 
+        0 seconds AND 379348 microseconds
+                    </td>     
+                </tr>                <tr class="desc">
+                    <td colspan="2">
+                        <strong>Check operation to check operation ran and worked properly...................
+                    </strong></td>     
+                </tr>                <tr class="pass">
+                    <td colspan="2">
+                        <strong>Result:</strong>&nbsp;&nbsp;---- PASS ALL KEYS RETRIEVED MATCH TEST ARRAY----
+                    </td>     
+                </tr>                        <tr class="ops">
+                    <td>
+                        <strong>Check operations per second:</strong>&nbsp;&nbsp; 16417 ops/sec.
+                    </td>   
+                    <td>
+                        <strong>Check time to complete:</strong>&nbsp;&nbsp; 
+        0 seconds AND 304558 microseconds
+                    </td>     
+                </tr>                <tr class="delete">
+                    <td colspan="2">
+                        <strong>Deleting operation check all keys delete properly...................
+                    </strong></td>     
+                </tr>                <tr class="ops">
+                    <td>
+                        <strong>Delete operations per second:</strong>&nbsp;&nbsp; 13191 ops/sec.
+                    </td>   
+                    <td>
+                        <strong>Delete time to complete:</strong>&nbsp;&nbsp; 
+        0 seconds AND 379031 microseconds
+                    </td>     
+                </tr>                <tr class="pass">
+                    <td colspan="2">
+                        <strong>Result:</strong>&nbsp;&nbsp;---- PASS ALL KEYS RETURN "NULL" ----
+                    </td>     
+                </tr>                        <tr class="ops">
+                    <td>
+                        <strong>Check deletes operations are NULL per second:</strong>&nbsp;&nbsp; 7346 ops/sec.
+                    </td>   
+                    <td>
+                        <strong>Check deletes time to complete:</strong>&nbsp;&nbsp; 
+        0 seconds AND 680583 microseconds
+                    </td>     
+                </tr>                <tr class="testhead">
+                    <td colspan="2">
+                        <strong>Test #5:Run test of 100 80 Byte key and 15000 Byte value pairs and verify output. </strong> 
+                    </td>     
+                </tr>                <tr class="desc">
+                    <td colspan="2">
+                        <strong>Preparing data:</strong> Creating random array of 100 80 Byte key and 15000 Byte value pairs........
+                    </td>     
+                </tr>                <tr class="ops">
+                    <td>
+                        <strong>Prepare operations per second:</strong>&nbsp;&nbsp; 55 ops/sec.
+                    </td>   
+                    <td>
+                        <strong>Prepare time to complete:</strong>&nbsp;&nbsp; 
+        1 seconds AND 810763 microseconds
+                    </td>     
+                </tr>                <tr class="desc">
+                    <td colspan="2">
+                        <strong>Running operation to test...................
+                    </strong></td>     
+                </tr>                <tr class="ops">
+                    <td>
+                        <strong>Run operations per second:</strong>&nbsp;&nbsp; 3379 ops/sec.
+                    </td>   
+                    <td>
+                        <strong>Run time to complete:</strong>&nbsp;&nbsp; 
+        0 seconds AND 29586 microseconds
+                    </td>     
+                </tr>                <tr class="desc">
+                    <td colspan="2">
+                        <strong>Check operation to check operation ran and worked properly...................
+                    </strong></td>     
+                </tr>                <tr class="pass">
+                    <td colspan="2">
+                        <strong>Result:</strong>&nbsp;&nbsp;---- PASS ALL KEYS RETRIEVED MATCH TEST ARRAY----
+                    </td>     
+                </tr>                        <tr class="ops">
+                    <td>
+                        <strong>Check operations per second:</strong>&nbsp;&nbsp; 7685 ops/sec.
+                    </td>   
+                    <td>
+                        <strong>Check time to complete:</strong>&nbsp;&nbsp; 
+        0 seconds AND 13010 microseconds
+                    </td>     
+                </tr>                <tr class="delete">
+                    <td colspan="2">
+                        <strong>Deleting operation check all keys delete properly...................
+                    </strong></td>     
+                </tr>                <tr class="ops">
+                    <td>
+                        <strong>Delete operations per second:</strong>&nbsp;&nbsp; 9353 ops/sec.
+                    </td>   
+                    <td>
+                        <strong>Delete time to complete:</strong>&nbsp;&nbsp; 
+        0 seconds AND 10691 microseconds
+                    </td>     
+                </tr>                <tr class="pass">
+                    <td colspan="2">
+                        <strong>Result:</strong>&nbsp;&nbsp;---- PASS ALL KEYS RETURN "NULL" ----
+                    </td>     
+                </tr>                        <tr class="ops">
+                    <td>
+                        <strong>Check deletes operations are NULL per second:</strong>&nbsp;&nbsp; 4784 ops/sec.
+                    </td>   
+                    <td>
+                        <strong>Check deletes time to complete:</strong>&nbsp;&nbsp; 
+        0 seconds AND 20902 microseconds
+                    </td>     
+                </tr>                <tr class="testhead">
+                    <td colspan="2">
+                        <strong>Test #6:Run test of 100 80 Byte key and 18000 Byte value pairs and verify output. </strong> 
+                    </td>     
+                </tr>                <tr class="desc">
+                    <td colspan="2">
+                        <strong>Preparing data:</strong> Creating random array of 100 80 Byte key and 18000 Byte value pairs........
+                    </td>     
+                </tr>                <tr class="ops">
+                    <td>
+                        <strong>Prepare operations per second:</strong>&nbsp;&nbsp; 45 ops/sec.
+                    </td>   
+                    <td>
+                        <strong>Prepare time to complete:</strong>&nbsp;&nbsp; 
+        2 seconds AND 186058 microseconds
+                    </td>     
+                </tr>                <tr class="desc">
+                    <td colspan="2">
+                        <strong>Running operation to test...................
+                    </strong></td>     
+                </tr>                <tr class="ops">
+                    <td>
+                        <strong>Run operations per second:</strong>&nbsp;&nbsp; 2217 ops/sec.
+                    </td>   
+                    <td>
+                        <strong>Run time to complete:</strong>&nbsp;&nbsp; 
+        0 seconds AND 45097 microseconds
+                    </td>     
+                </tr>                <tr class="desc">
+                    <td colspan="2">
+                        <strong>Check operation to check operation ran and worked properly...................
+                    </strong></td>     
+                </tr>                <tr class="pass">
+                    <td colspan="2">
+                        <strong>Result:</strong>&nbsp;&nbsp;---- PASS ALL KEYS RETRIEVED MATCH TEST ARRAY----
+                    </td>     
+                </tr>                        <tr class="ops">
+                    <td>
+                        <strong>Check operations per second:</strong>&nbsp;&nbsp; 6470 ops/sec.
+                    </td>   
+                    <td>
+                        <strong>Check time to complete:</strong>&nbsp;&nbsp; 
+        0 seconds AND 15455 microseconds
+                    </td>     
+                </tr>                <tr class="delete">
+                    <td colspan="2">
+                        <strong>Deleting operation check all keys delete properly...................
+                    </strong></td>     
+                </tr>                <tr class="ops">
+                    <td>
+                        <strong>Delete operations per second:</strong>&nbsp;&nbsp; 5446 ops/sec.
+                    </td>   
+                    <td>
+                        <strong>Delete time to complete:</strong>&nbsp;&nbsp; 
+        0 seconds AND 18359 microseconds
+                    </td>     
+                </tr>                <tr class="pass">
+                    <td colspan="2">
+                        <strong>Result:</strong>&nbsp;&nbsp;---- PASS ALL KEYS RETURN "NULL" ----
+                    </td>     
+                </tr>                        <tr class="ops">
+                    <td>
+                        <strong>Check deletes operations are NULL per second:</strong>&nbsp;&nbsp; 3555 ops/sec.
+                    </td>   
+                    <td>
+                        <strong>Check deletes time to complete:</strong>&nbsp;&nbsp; 
+        0 seconds AND 28127 microseconds
+                    </td>     
+                </tr>                <tr class="testhead">
+                    <td colspan="2">
+                        <strong>Test #7:Run test of 100 80 Byte key and 60000 Byte value pairs and verify output. </strong> 
+                    </td>     
+                </tr>                <tr class="desc">
+                    <td colspan="2">
+                        <strong>Preparing data:</strong> Creating random array of 100 80 Byte key and 60000 Byte value pairs........
+                    </td>     
+                </tr>                <tr class="ops">
+                    <td>
+                        <strong>Prepare operations per second:</strong>&nbsp;&nbsp; 13 ops/sec.
+                    </td>   
+                    <td>
+                        <strong>Prepare time to complete:</strong>&nbsp;&nbsp; 
+        7 seconds AND 224895 microseconds
+                    </td>     
+                </tr>                <tr class="desc">
+                    <td colspan="2">
+                        <strong>Running operation to test...................
+                    </strong></td>     
+                </tr>                <tr class="ops">
+                    <td>
+                        <strong>Run operations per second:</strong>&nbsp;&nbsp; 688 ops/sec.
+                    </td>   
+                    <td>
+                        <strong>Run time to complete:</strong>&nbsp;&nbsp; 
+        0 seconds AND 145199 microseconds
+                    </td>     
+                </tr>                <tr class="desc">
+                    <td colspan="2">
+                        <strong>Check operation to check operation ran and worked properly...................
+                    </strong></td>     
+                </tr>                <tr class="pass">
+                    <td colspan="2">
+                        <strong>Result:</strong>&nbsp;&nbsp;---- PASS ALL KEYS RETRIEVED MATCH TEST ARRAY----
+                    </td>     
+                </tr>                        <tr class="ops">
+                    <td>
+                        <strong>Check operations per second:</strong>&nbsp;&nbsp; 4942 ops/sec.
+                    </td>   
+                    <td>
+                        <strong>Check time to complete:</strong>&nbsp;&nbsp; 
+        0 seconds AND 20231 microseconds
+                    </td>     
+                </tr>                <tr class="delete">
+                    <td colspan="2">
+                        <strong>Deleting operation check all keys delete properly...................
+                    </strong></td>     
+                </tr>                <tr class="ops">
+                    <td>
+                        <strong>Delete operations per second:</strong>&nbsp;&nbsp; 8604 ops/sec.
+                    </td>   
+                    <td>
+                        <strong>Delete time to complete:</strong>&nbsp;&nbsp; 
+        0 seconds AND 11621 microseconds
+                    </td>     
+                </tr>                <tr class="pass">
+                    <td colspan="2">
+                        <strong>Result:</strong>&nbsp;&nbsp;---- PASS ALL KEYS RETURN "NULL" ----
+                    </td>     
+                </tr>                        <tr class="ops">
+                    <td>
+                        <strong>Check deletes operations are NULL per second:</strong>&nbsp;&nbsp; 4821 ops/sec.
+                    </td>   
+                    <td>
+                        <strong>Check deletes time to complete:</strong>&nbsp;&nbsp; 
+        0 seconds AND 20741 microseconds
+                    </td>     
+                </tr>            </tbody></table> 
+
+
+
+        </div>
+    
+</body></html>

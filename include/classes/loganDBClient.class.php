@@ -25,74 +25,25 @@ class loganDBClient {
      $this->hostport = $this->serverip . ":" . $this->port;
   }
   public function Connect(){
+    //  echo $this->hostport . "</br>";
     $this->sock = stream_socket_client("$this->hostport", $errno, $errstr, $this->timeout);
     if(!$this->sock){
-      echo "Connection error!";  //throw new loganDBException("$errno: $errstr");
+      throw new loganDBException("$errno: $errstr");
     } else {
       //echo "OK!<br/>";
     }
     stream_set_blocking ($this->sock , false);
   }
   public function LDBEcho($keystorename, $key){
-    $in = '|' . $this->apiversion . '|' 
-            . $this->authid . '|' 
-            . $this->sessionid . '|' 
-            . $keystorename . '|'
+    $in = '|' . $keystorename . '|'
             . 'echo|' 
             . $key . '|';
     return $this->WriteReadStream($in);
   }
   public function GetKey($keystorename, $key){
-    $in = '|' . $this->apiversion . '|' 
-            . $this->authid . '|' 
-            . $this->sessionid . '|' 
-            . $keystorename . '|'
+    $in = '|' . $keystorename . '|'
             . 'getkey|' 
             . $key . '|';
-    return $this->WriteReadStream($in);
-  }
-  public function AddSetPair($key,$value){
-    array_push($this->keys,$key);
-    array_push($this->values,$value);
-  }
-  public function AddGetKey($key){
-     array_push($this->keys,$key);     
-  }
-  public function GetMultiKey($keystorename,$debug = false){
-    $in = '|' . $this->apiversion . '|' 
-        . $this->authid . '|' 
-        . $this->sessionid . '|' 
-        . $keystorename . '|'
-        . 'getmultikey';
-        // add keys
-    foreach ($this->keys as $key) {
-      $in .= "|" . $key;
-    }
-    $in.= "|***LOGANDB_ENDLIST***"; 
-    $in.= "|"; //end messsage string
-    if($debug == true){
-      echo $in . "<br/>";
-    } else {
-      return $this->WriteReadStream($in);    
-    }
-     
-  }
-  public function SetMultiKey($keystorename){
-    $in = '|' . $this->apiversion . '|' 
-           . $this->authid . '|' 
-           . $this->sessionid . '|' 
-           . $keystorename . '|'
-           . 'setmultikey';
-    // add keys
-    foreach ($this->keys as $key) {
-      $in .= "|" . $key;
-    }
-    $in.= "|***LOGANDBENDLIST***"; 
-    foreach ($this->values as $value) {
-      $in .= "|" . $values;
-    }
-    $in.= "|***LOGANDBENDLIST***"; 
-    $in.= "|"; //end messsage string
     return $this->WriteReadStream($in);
   }
   public function SetKey($keystorename, $key,$value){
@@ -101,10 +52,7 @@ class loganDBClient {
       } else {
           $start = $value;
       }
-      $in = '|' . $this->apiversion . '|' 
-            . $this->authid . '|' 
-            . $this->sessionid . '|' 
-            . $keystorename . '|'
+      $in = '|' . $keystorename . '|'
             . 'setkey|' 
             . $key . '|'
             . $start . '|';
@@ -116,10 +64,7 @@ class loganDBClient {
       $spos = 8000;
       for($loopnum = 1; $loopnum < $loops; $loopnum++){
         $start = substr($value,$spos,8000);
-        $in = '|' . $this->apiversion . '|' 
-        . $this->authid . '|' 
-        . $this->sessionid . '|' 
-        . $keystorename . '|'
+        $in = '|' . $keystorename . '|'
         . 'setappendkey|' 
         . $key . '|'
         . $start . '|';
@@ -127,32 +72,15 @@ class loganDBClient {
         $spos += 8000;
       }
       $start = substr($value,$spos,8000);
-      $in = '|' . $this->apiversion . '|' 
-        . $this->authid . '|' 
-        . $this->sessionid . '|' 
-        . $keystorename . '|'
+      $in = '|' . $keystorename . '|'
         . 'setappendkey|' 
         . $key . '|'
         . $start . '|';
       return $this->WriteReadStream($in);
     }
   }
-  public function GetKeyRange($keystorename, $startkey,$endkey,$limit = 100){
-    $in = '|' . $this->apiversion . '|' 
-            . $this->authid . '|' 
-            . $this->sessionid . '|' 
-            . $keystorename . '|'
-            . 'getkeyrange|' 
-            . $startkey . '|'
-            . $endkey . '|'
-            . $limit . "|";
-    return $this->WriteReadStream($in);
-  }
   public function DeleteKey($keystorename, $key){
-    $in = '|' . $this->apiversion . '|' 
-            . $this->authid . '|' 
-            . $this->sessionid . '|' 
-            . $keystorename . '|'
+    $in = '|' . $keystorename . '|'
             . 'deletekey|' 
             . $key . '|'
             . '|';
