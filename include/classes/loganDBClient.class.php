@@ -94,22 +94,20 @@ class loganDBClient {
     str_pad($bytes,9,"0",STR_PAD_LEFT);
     $in = $bytes . $in;
     $result = fwrite($this->sock, $in);
-    if(true){
-        $out = "";
-        $datalen = "";
-        while($datalen  == ""){
-          $datalen = fread($this->sock, 9);
-        }
-        //echo "Data Length:" . $datalen . "<br/><br/>";
-        $discard = fread($this->sock, 1);
-        $reads = ceil(intval($datalen) / 1024);
-        //echo "Reads:" .  $reads . "<br/>";
-        for($readnum = 1; $readnum <= $reads;$readnum++){
-          $chunk = fread($this->sock, 1024);
-          $out .= $chunk;
-        }
-        $out = substr($out,0,(strlen($out)-1));
+    $out = "";
+    $datalen = "";
+    while($datalen  == ""){
+      $datalen = fread($this->sock, 9);
     }
+    //echo "Data Length:" . $datalen . "<br/><br/>";
+    $discard = fread($this->sock, 1);
+    $reads = ceil(intval($datalen) / 1024);
+    //echo "Reads:" .  $reads . "<br/>";
+    for($readnum = 1; $readnum <= $reads;$readnum++){
+      $chunk = fread($this->sock, 1024);
+      $out .= $chunk;
+    }
+    $out = substr($out,0,(strlen($out)-1));
     return $out; 
   }
   public function __destruct()
