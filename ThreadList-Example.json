@@ -1,0 +1,38 @@
+[{
+        "users": [{
+                "firstName": "John",
+                "lastName": "Doe",
+                "id": "Doe.John"
+            }, {
+                "firstName": "Anna",
+                "lastName": "Smith",
+                "id": "Smith.Anna"
+            }, {
+                "firstName": "Peter",
+                "lastName": "Jones",
+                "id": "Jones.Peter"
+            }]
+    }, {
+        "threads": [{
+                "threadid": "<ThreadId>",
+                "dt": "<ms since epoch>",
+                "subject": "<Subject of Thread>",
+                "state": 1,
+                "from_uid": "<UserIdOfFrom>",
+                "to_uid": "<UserIdOfTo>"
+            }, {
+                "threadid": "<ThreadId>",
+                "dt": "<ms since epoch>",
+                "subject": "<Subject of Thread>",
+                "state": 1,
+                "from_uid": "<UserIdOfFrom>",
+                "to_uid": "<UserIdOfTo>"
+            }, {
+                "threadid": "<ThreadId>",
+                "dt": "<ms since epoch>",
+                "subject": "<Subject of Thread>",
+                "state": 1,
+                "from_uid": "<UserIdOfFrom>",
+                "to_uid": "<UserIdOfTo>"
+            }]
+    }]

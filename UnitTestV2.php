@@ -42,43 +42,43 @@ function TestSetGet($TB,$ops,$keybytes,$databytes) {
     $TB->checkOut($check);
 
     $TB->checktimeOut();
-    
-    $TB->DeleteOperation();
-    foreach ($TB->testData as $key => $value) {
-        $return =  $TB->lc->DeleteKey("A", $key);
-    }
-    
-    $TB->deletetimeOut();
+    if(false){
+        $TB->DeleteOperation();
+        foreach ($TB->testData as $key => $value) {
+            $return =  $TB->lc->DeleteKey("A", $key);
+        }
+
+        $TB->deletetimeOut();
 
 
-    $TB->checkdeleteOperation();
-    $check = true;
-    foreach ($TB->testData as $key => $value) {
-        $getValue = $TB->lc->GetKey("A", $key);
-        if ("NULL" == $getValue) {
-            //$check = false;
-            //break;
-        } else {
-            if($getValue == "NULL"){
-                echo "<tr><td colspan='2'>GetValue:" . "PASSED TRY 2" . "</td></tr>";
+        $TB->checkdeleteOperation();
+        $check = true;
+        foreach ($TB->testData as $key => $value) {
+            $getValue = $TB->lc->GetKey("A", $key);
+            if ("NULL" == $getValue) {
+                //$check = false;
+                //break;
             } else {
-              echo "<tr><td colspan='2'>GetValue:" . $getValue . "</td></tr>";
-              $check = false;
+                if($getValue == "NULL"){
+                    echo "<tr><td colspan='2'>GetValue:" . "PASSED TRY 2" . "</td></tr>";
+                } else {
+                  echo "<tr><td colspan='2'>GetValue:" . $getValue . "</td></tr>";
+                  $check = false;
+                }
             }
         }
+        $TB->checkdeleteOut($check);
+        $TB->checkdeletetimeOut();
     }
-    $TB->checkdeleteOut($check);
-    $TB->checkdeletetimeOut();
-    
     $size = $TB->lc->GetSize("A");
     $TB->CheckSize($size);
 }
 
  $TB = new LDBTestBase();
-for($runs = 0; $runs < 1;$runs++){
+for($runs = 0; $runs < 250;$runs++){
  
 
-  $ops = 5000;
+  $ops = 500;
   $keybytes = 24;
   $databytes = 4000;
    
@@ -126,8 +126,7 @@ for($runs = 0; $runs < 1;$runs++){
   }
   
   
-
-}
+  }
 
 
 

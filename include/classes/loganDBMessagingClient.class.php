@@ -1,17 +1,30 @@
 <?php
 /**
- * Description of loganDBClient
+ * Description of loganDBMessagingClient
  *
- * loganDB php client class
+ * loganDB messagng php client class
  * @author pnovack
+ * 
+ * Thread States enumeration:
+ * 
+ * Unread: 1
+ * Read: 2
+ * Sent: 3
+ * Read by Recipient: 4
+ * Broadcast Message : 5   
+ * 
  */
-class loganDBClient {
+class loganDBMessagingClient {
   public $serverip;
   public $port;
   public $timeout;  // in milliseconds;
   public $keys = array();
   public $values = array();
   private $socket;
+  private $epochoffset = 10000000000;
+  private $defaultcount = 25;
+  private $defaultstates = "1,2";
+  
   function __construct($serverip = "127.0.0.1",$port = 6779,$authid = "JAVA-default",$sessionid = "JAVA-default",$timeout = 1000) {
      $this->serverip = $serverip;
      $this->port = $port; 
@@ -28,6 +41,35 @@ class loganDBClient {
     }
     stream_set_blocking ($this->sock , false);
   }
+  public function GetThreads($userid,$states,$count = "",
+                                $from = "",$to = "",$startdate = "",
+                                $enddate = "",$subjectfind = "",$postfind = ""){
+      
+  }
+  public function GetThread($userid,$threadid){
+      
+  }
+  public function ReadThread($userid,$threadid){
+      
+  }
+  public function CreateThread($userid,$recipients,$subject,$post){
+      
+      
+      // requires append for long posts
+  }
+  public function ReplyToThread($threadid,$recipients, $post){
+   
+      
+      // Requires append for long posts
+  }
+  public function SetKeyValTime($epochdate){
+      $keyvaltime =  $this->epochoffset - $epochdate;
+      return $keyvaltime;
+  }
+  public function GetTimeFromKeyVal($keyvaltime){
+      $epochdate =   -($keyvaltime - $this->epochoffset);
+      return $epochdate;
+  } 
   public function LDBEcho($keystorename, $key){
     $in = '|' . $keystorename . '|'
             . 'echo|' 

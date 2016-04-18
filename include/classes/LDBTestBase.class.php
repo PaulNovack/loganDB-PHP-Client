@@ -23,6 +23,8 @@ class LDBTestBase {
     private $milliseconds;
     private $microseconds;
     private $opsPerSecond;
+    private $version = "0.6.0";
+    private $memoryorrocks = "memory";
     public $testData;
     private $testNumber = 1;
     public $lc;
@@ -59,7 +61,9 @@ $str = <<<MARKER
     </head>
     <body>
         <div >
-            <h3>Logan DB PHP Client / Server Test Report version 0.5.3:  $today UTC Time</h3>
+            <h3>Logan DB PHP Client / Server Test Report version
+                $this->version  $today UTC Time: Memory or 
+                    RocksDB based cache: $this->memoryorrocks</h3>
             <table >
 MARKER;
         echo $str;
@@ -99,7 +103,7 @@ MARKER;
 $str = <<<MARKER
                 <tr class="running">
                     <td colspan="2">
-                        <strong>Running operation to test...................
+                        <strong>Running (write) operation to test...................
                     </td>     
                 </tr>
 MARKER;
@@ -112,7 +116,7 @@ MARKER;
 $str = <<<MARKER
                 <tr class="running">
                     <td colspan="2">
-                        <strong>Check operation to check operation ran and getkey values match random data test array...................
+                        <strong>Check operation (read) to check operation ran and getkey values match random data test array...................
                     </td>     
                 </tr>
 MARKER;
@@ -303,7 +307,20 @@ MARKER;
       flush();
     }  
     
-    
+    function checksize($size){
+      $this->end();
+      $this->calculate($this->ops);
+$str = <<<MARKER
+                <tr class="desc">
+                    <td colspan="2">
+                        <strong>Size of Keystore (key count):</strong> $size
+                    </td>     
+                </tr>
+MARKER;
+      echo $str;
+      ob_flush();
+      flush();
+    }     
     
     
     function calculate(){
