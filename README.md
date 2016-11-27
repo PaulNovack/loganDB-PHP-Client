@@ -1,7 +1,9 @@
 # loganDB-PHP-Client
 ##Client for loganDB server
 
-More information at: http://logandb.com (Website documentation is behind the github codebase right now)
+This project is not under development.
+
+SSDB does just about everything this was initially being developed for.
 
 ## version 0.5.3
 
